@@ -1,2 +1,3 @@
-export { HeaderComponent } from './header/header.component';
-export { SideNavComponent } from './side-nav/side-nav.component';
+export { HeaderWrapperComponent } from './headers/header-wrapper.component';
+export { SideNavComponent } from './side-navs/side-nav.component';
+export { TemplateHostDirective } from './template-host.directive';

@@ -1,27 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { MatToolbarModule } from '@angular/material'
+
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent, DashboardComponent } from './pages';
-import { HeaderComponent } from './components/header/header.component';
-import { SideNavComponent } from './components/side-nav/side-nav.component';
-import { HeaderExampleComponent } from './pages/header-example/header-example.component';
-import { SideNavExampleComponent } from './pages/side-nav-example/side-nav-example.component';
+import { AppComponent, DashboardComponent, HeaderExampleComponent, SideNavExampleComponent } from './pages';
+
+import { HeaderWrapperComponent, SideNavComponent, TemplateHostDirective } from './components';
+
+import { RedHeaderComponent, BlueHeaderComponent, GreenHeaderComponent } from './components/headers/impl';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    HeaderComponent,
+    HeaderWrapperComponent,
     SideNavComponent,
     HeaderExampleComponent,
-    SideNavExampleComponent
+    RedHeaderComponent, BlueHeaderComponent, GreenHeaderComponent,
+    SideNavExampleComponent,
+    TemplateHostDirective
   ],
   imports: [
+    MatToolbarModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  entryComponents: [RedHeaderComponent, BlueHeaderComponent, GreenHeaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
