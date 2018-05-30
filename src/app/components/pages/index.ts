@@ -1,0 +1,1 @@
+export { IPageComponent } from './ipage.component';

@@ -1,3 +1,22 @@
-header {
-    
+::ng-deep header {
+    display: flex;
+    align-items: center;
+
+    height: 5rem;
+
+    font-size: 1.5rem;
+    line-height: 1.5;
+
+    span.title {
+        padding: 0 1.5rem;
+        flex-shrink: 0;
+    }
+
+    span.nav {
+        display: flex;
+        align-items: center;
+
+        flex-shrink: 0;
+        flex-grow: 1;
+    }
 }

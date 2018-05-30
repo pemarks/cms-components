@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, ComponentFactoryResolver, SimpleChanges, SimpleChange, Type, ViewChild, ComponentFactory, ComponentRef } from '@angular/core';
 
-import { HeaderComponent } from './header.component';
+import { IHeaderComponent } from './iheader.component';
 import { BlueHeaderComponent, GreenHeaderComponent, RedHeaderComponent } from './impl';
 import { TemplateHostDirective } from '../template-host.directive';
 
@@ -14,13 +14,7 @@ export class HeaderWrapperComponent implements OnInit, OnChanges {
   public type: string;
 
   @Input()
-  public logo: string;
-
-  @Input()
-  public links: Array<any>;
-
-  @Input()
-  public title: string;
+  public data: IHeaderComponent;
 
   @ViewChild(TemplateHostDirective) host: TemplateHostDirective;
 
@@ -37,23 +31,23 @@ export class HeaderWrapperComponent implements OnInit, OnChanges {
   }
 
   private loadComponent() {
-    const componentFactory: ComponentFactory<HeaderComponent> = this.componentFactoryResolver.resolveComponentFactory(this.findComponent()),
+    const componentFactory: ComponentFactory<IHeaderComponent> = this.componentFactoryResolver.resolveComponentFactory(this.findComponent()),
       viewContainerRef = this.host.viewContainerRef;
 
     viewContainerRef.clear();
-    const componentRef: ComponentRef<HeaderComponent> = viewContainerRef.createComponent(componentFactory);
+    const componentRef: ComponentRef<IHeaderComponent> = viewContainerRef.createComponent(componentFactory);
 
     if (componentRef) {
-      let instance: HeaderComponent = componentRef.instance;
+      let instance: IHeaderComponent = componentRef.instance;
 
-      instance.title = this.title;
-      instance.links = this.links;
-      instance.logo = this.logo;
+      instance.title = this.data.title;
+      instance.links = this.data.links;
+      instance.logo = this.data.logo;
     }
   }
 
-  private findComponent(): Type<HeaderComponent> {
-    let header: Type<HeaderComponent> = null;
+  private findComponent(): Type<IHeaderComponent> {
+    let header: Type<IHeaderComponent> = null;
 
     switch(this.type.toLowerCase()) {
       case 'blue': {

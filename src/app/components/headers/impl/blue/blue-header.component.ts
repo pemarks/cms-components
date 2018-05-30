@@ -1,20 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { HeaderComponent } from '../../header.component';
+import { Component } from '@angular/core';
+import { BaseHeaderComponent } from '../../base-header.component';
+import { StyleService } from '../../../../services';
 
 @Component({
   selector: 'app-blue',
   templateUrl: './blue-header.component.html',
   styleUrls: ['./blue-header.component.less']
 })
-export class BlueHeaderComponent implements HeaderComponent {
-  @Input()
-  title: string;
-
-  @Input()
-  logo: string;
-
-  @Input()
-  links: any;
-
-  constructor() {}
+export class BlueHeaderComponent extends BaseHeaderComponent {
+  constructor(styleService: StyleService) {
+    super(styleService);
+  }
 }

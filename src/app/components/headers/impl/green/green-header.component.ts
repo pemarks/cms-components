@@ -1,24 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { HeaderComponent } from '../../header.component';
+import { Component } from '@angular/core';
+import { BaseHeaderComponent } from '../../base-header.component';
+import { StyleService } from '../../../../services';
 
 @Component({
   selector: 'app-green',
   templateUrl: './green-header.component.html',
   styleUrls: ['./green-header.component.less']
 })
-export class GreenHeaderComponent implements HeaderComponent, OnInit {
-  @Input()
-  title: string;
-
-  @Input()
-  logo: string;
-
-  @Input()
-  links: any;
-
-  constructor() { }
-
-  ngOnInit() {
+export class GreenHeaderComponent extends BaseHeaderComponent {
+  constructor(styleService: StyleService) {
+    super(styleService);
   }
 
 }

@@ -1,0 +1,1 @@
+export { ISectionComponent } from './isection.component';
